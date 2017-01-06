@@ -53,6 +53,7 @@ function create() {
 	// Player
 
 	player = game.add.sprite(32, game.world.height - 150, 'slimer')
+	player.anchor.setTo(0.5, 1)
 
 	game.physics.arcade.enable(player)
 
@@ -89,8 +90,10 @@ function update() {
 
 	if (cursors.left.isDown) {
 		player.body.velocity.x = -speed
+		player.scale.x = -1 // Flipped
 	} else if (cursors.right.isDown) {
 		player.body.velocity.x = speed
+		player.scale.x = 1 // Default
 	}
 
 	const hitPlatform = game.physics.arcade.collide(player, platforms)
