@@ -22,6 +22,8 @@ let score = 0
 
 function preload() {
 	game.load.image('sky',    'assets/sky.png')
+	game.load.image('cloud1',    'assets/cloud.png')
+	game.load.image('cloud2',    'assets/cloud.png')
 	game.load.image('ground', 'assets/platform.png')
 	game.load.image('slimer', 'assets/characters/slimer.png')
 	foodNames.forEach(f => game.load.image(f, `assets/food/${f}.png`))
@@ -30,7 +32,12 @@ function preload() {
 function create() {
 
 	game.physics.startSystem(Phaser.Physics.ARCADE)
+
+	// Background
+
 	game.add.sprite(0, 0, 'sky')
+	game.add.sprite(50, 100, 'cloud1')
+	game.add.sprite(500, 150, 'cloud2')
 
 	// Ground and Platforms
 
