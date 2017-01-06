@@ -1,0 +1,19 @@
+{
+  "name": "slimer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianblynch/slimer.git"
+  },
+  "author": "Adrian Lynch",
+  "license": "MIT",
+  "homepage": "https://adrianblynch.github.io/slimer",
+  "dependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}
