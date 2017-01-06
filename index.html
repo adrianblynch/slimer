@@ -20,17 +20,10 @@ let foodNames = ['big-mac', 'burger1', 'doughnut1', 'fries', 'hotdog']
 let score = 0
 
 function preload() {
-
 	game.load.image('sky',    'assets/sky.png')
-	game.load.image('ground', 'assets/platform.png');
+	game.load.image('ground', 'assets/platform.png')
 	game.load.image('slimer', 'assets/characters/slimer.png')
-
 	foodNames.forEach(f => game.load.image(f, `assets/food/${f}.png`))
-
-	// game.load.image('egon',    'assets/characters/egon.png')
-	// game.load.image('ray',     'assets/characters/ray.png')
-	// game.load.image('venkman', 'assets/characters/venkman.png')
-	// game.load.image('winston', 'assets/characters/winston.png')
 }
 
 function create() {
@@ -40,8 +33,8 @@ function create() {
 
 	// Ground and Platforms
 
-	platforms = game.add.group();
-	platforms.enableBody = true;
+	platforms = game.add.group()
+	platforms.enableBody = true
 
 	const ground = platforms.create(0, game.world.height - 64, 'ground')
 
@@ -79,16 +72,11 @@ function create() {
 
 	// Controls
 
-	cursors = game.input.keyboard.createCursorKeys();
+	cursors = game.input.keyboard.createCursorKeys()
 
 	// Score
 	scoreText = game.add.text(10, 10, 'Score: 0', { fontSize: '30px', fill: '#000' })
 
-	// game.add.sprite(200, 100, 'slimer')
-	// game.add.sprite(50,  400, 'egon')
-	// game.add.sprite(150, 400, 'ray')
-	// game.add.sprite(250, 400, 'venkman')
-	// game.add.sprite(350, 400, 'winston')
 }
 
 function update() {
@@ -96,24 +84,19 @@ function update() {
 	const speed = 400
 
 	//  Reset the players velocity (movement)
-	player.body.velocity.x = 0;
+	player.body.velocity.x = 0
 
 	if (cursors.left.isDown) {
-		player.body.velocity.x = -speed;
-		// player.animations.play('left');
+		player.body.velocity.x = -speed
 	} else if (cursors.right.isDown) {
-		player.body.velocity.x = speed;
-		// player.animations.play('right');
-	} else {
-		player.animations.stop();
-		// player.frame = 4;
+		player.body.velocity.x = speed
 	}
 
 	const hitPlatform = game.physics.arcade.collide(player, platforms)
 
 	//  Allow the player to jump if they are touching the ground
 	if (cursors.up.isDown && player.body.touching.down && hitPlatform) {
-		player.body.velocity.y = -350;
+		player.body.velocity.y = -350
 	}
 
 	game.physics.arcade.collide(foods, platforms)
